@@ -141,7 +141,31 @@ public static void saveWordcount(List<TbWordcount> list){
 		}
 	}
 }
-
+/*
+ //合并相邻的词
+		for(int i=0;i<resultnew.size()-1;i++){
+			if(resultnew.get(i)!=null)
+			//从该词的位置之后开始判断,是否相邻,相邻就合并,把被合并的置为null
+			for(int j=i+1;j<resultnew.size();j++){
+				Object[] obj = resultnew.get(i);
+				int firstindex = (int)obj[0];
+				String firstword=(String)obj[1];
+				int firstcount = (int)obj[2];
+				Object[] nextobj = resultnew.get(j);
+				//判断
+				int nextindex = (int)nextobj[0];
+				String nextword = (String)nextobj[1];
+				int nextcount = (int)nextobj[2];
+				if(nextindex-firstindex==firstword.length()){
+					firstcount = firstcount<nextcount?firstcount:nextcount;
+					resultnew.set(i, new Object[]{firstindex, firstword+nextword, firstcount});
+					resultnew.set(j, null);
+				}else{
+					break;
+				}
+			}
+		}
+  */
 
 public static void main(String[] args){
 	Wordcount w = new Wordcount();
